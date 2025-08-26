@@ -223,4 +223,4 @@ This project was developed in two phases:
   Conducted exploratory data analysis (EDA) and developed visualizations to identify workforce patterns and trends.  
 
 - **Irene** – Communication Strategy & Exploratory Analysis  
-  Focused on interpreting exploratory results, drafting key narratives, and aligning findings with business communication.  
+  Focused on drafting key narratives, and aligning findings with business communication.  
