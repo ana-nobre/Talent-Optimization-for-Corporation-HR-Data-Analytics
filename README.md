@@ -189,6 +189,13 @@ FROM employee_professional p
 JOIN employee_financial f USING (employeenumber)
 GROUP BY p.job_level;
 ```
+---
+
+## HRIS Report Preview  
+Below is a preview of the **HRIS Report**, presented in a consulting format:  
+
+![HRIS Report Preview](./HRIS_Report_Preview.png)  
+*Refer to **HRIS_Report_ABC_Corporation_Template.pdf** to access a sample consulting-style HRIS report, including KPIs, workforce demographics, turnover analysis, and actionable recommendations.*  
 
 ---
 
