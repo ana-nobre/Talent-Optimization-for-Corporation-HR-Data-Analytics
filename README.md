@@ -4,6 +4,7 @@
 This project applies **People Analytics** and **HRIS-style reporting** to a corporate HR dataset, with the goal of identifying workforce trends, risks, and actionable insights for leadership. The analysis covers demographics, turnover, compensation & equity, diversity & inclusion, engagement, and HR’s internal role.  
 
 The final output is a **consulting-style HRIS Report** (PDF) that consolidates findings into KPIs, visual dashboards, and executive recommendations.  
+
 ---
 
 ## Objectives
