@@ -181,8 +181,11 @@ sns.histplot(data=active, x='Generation', hue='Gender',
 plt.title('Active Employees by Generation and Gender')
 plt.show()
 ```
-This visualization highlights workforce composition by generation and gender.
-Key insight: Gen Z, although currently smaller, shows the highest turnover rates in other analyses and is expected to become the majority of the workforce in the next decade.
+
+### Key Insight
+Gen Z is a smaller share today but shows the highest turnover—creating retention risk as they become the dominant segment this decade. This also signals business opportunities to strengthen organizational culture and adapt to evolving employee needs.
+
+
 ---
 
 ## Example SQL Analytics Queries
