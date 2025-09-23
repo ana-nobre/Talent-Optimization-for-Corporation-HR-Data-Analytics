@@ -222,7 +222,7 @@ Below is a preview of the **HRIS Report**, presented in a consulting format:
 ## Credits
 
 This project was developed in two phases:  
-1. **Collaborative phase (Adalab Bootcamp):** Exploratory Data Analysis (EDA) and Data Visualization carried out jointly.  
+1. **Collaborative phase:** Exploratory Data Analysis (EDA) and Data Visualization carried out jointly.  
 2. **Individual extension (Ana Nobre Santos):** New insights on salary equity, database design from scratch, HRIS reporting, and ETL pipeline development.  
 
 - **Ana Nobre Santos** – Database Design, SQL, ETL and HRIS Reporting  
