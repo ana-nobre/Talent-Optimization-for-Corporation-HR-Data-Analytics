@@ -18,22 +18,30 @@ The final output is a **consulting-style HRIS Report** (PDF) that consolidates f
 
 ## Repository Structure
 ```
-├─ src/
-│  └─ main.py                            # Main Python script for ETL pipeline
-├─ ABC_EER_DIAGRAM.mwb                   # Entity-Relationship diagram (MySQL Workbench)
-├─ abc_corporation_SQL.ipynb             # SQL queries for HRIS-style reporting
-├─ cleaning_and_export_CSV.ipynb         # Notebook for data cleaning and exporting final CSV
-├─ columnas_exploracion_visual.ipynb     # Visual exploration of HR data (plots, charts)
-├─ context.ipynb                         # Contextual notes and definitions for the HR dataset
-├─ exploration_hr_raw.ipynb              # Initial HR data exploration (raw dataset)
-├─ exploration_hr_cleaned.ipynb          # HR data exploration after cleaning
-├─ start_stop_continued.ipynb            # Start / Stop / Continue analysis and recommendations
-├─ forward_engineer.sql                  # Database schema forward engineering script
-├─ hr_raw_data.csv                       # Original HR dataset (raw)
-├─ hr_data_cleaned.csv                   # Cleaned HR dataset ready for analysis
-├─ HRIS_Report_ABC_Corporation_Final.pdf # Final HRIS-style report (consulting format)
-├─ info_completo.txt                     # Additional project notes and context
-└─ README.md                             # Project documentation
+TALENT-OPTIMIZATION-FOR-CORPORATION-HR-DATA-ANALYTICS
+│
+├── Data-Analytics-and-Vizualization
+│   ├── context.ipynb
+│   ├── hr_data_cleaned.csv
+│   ├── start_stop_continued.ipynb
+│
+├── EDA
+│   ├── cleaning_and_export_CSV.ipynb
+│   ├── columnas_exploracion_visual.ipynb
+│   ├── exploracion_hr_cleaned.ipynb
+│   ├── exploration_hr_raw.ipynb
+│   ├── hr_raw_data.csv
+│   └── info_completo.txt
+│
+├── SQL
+│   ├── abc_corporation_SQL.ipynb
+│   ├── ABC_EER_DIAGRAM.mwb
+│   └── Forward_engineer.sql
+│
+├── HRIS_Report_ABC_Corporation_Final.pdf
+├── HRIS_Report_Preview.png
+└── README.md
+
 ```
 
 ---
