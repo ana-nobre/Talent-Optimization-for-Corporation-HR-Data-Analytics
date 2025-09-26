@@ -3,6 +3,14 @@
 ## Project Overview
 This project applies **People Analytics** and **HRIS-style reporting** to a corporate HR dataset (BluePeak Technologies), with the goal of identifying workforce trends, risks, and actionable insights for leadership. The analysis covers demographics, turnover, compensation & equity, diversity & inclusion, engagement, and HR’s internal role. The final output is a **consulting-style HRIS Report** (PDF) that consolidates findings into KPIs, visual dashboards, and executive recommendations.  
 
+![Python](https://img.shields.io/badge/Python-3.13-blue)
+![MySQL%20Workbench](https://img.shields.io/badge/MySQL%20Workbench-Forward%20Engineering-blue)
+![mysql--connector](https://img.shields.io/badge/mysql--connector-Python-blue)
+![pandas](https://img.shields.io/badge/pandas-DataFrames-blue)
+![Matplotlib](https://img.shields.io/badge/Matplotlib-Plotting-blue)
+![Seaborn](https://img.shields.io/badge/Seaborn-Stat%20Viz-blue)
+
+
 ## Database Creation Methods
 This project demonstrates three different ways to create a MySQL database:
 
