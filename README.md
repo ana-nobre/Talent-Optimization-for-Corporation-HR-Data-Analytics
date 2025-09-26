@@ -1,7 +1,7 @@
 # Talent Optimization for Corporation – HR Data Analytics
 
 ## Project Overview
-This project applies **People Analytics** and **HRIS-style reporting** to a corporate HR dataset, with the goal of identifying workforce trends, risks, and actionable insights for leadership. The analysis covers demographics, turnover, compensation & equity, diversity & inclusion, engagement, and HR’s internal role.  
+This project applies **People Analytics** and **HRIS-style reporting** to a corporate HR dataset (BluePeak Technologies), with the goal of identifying workforce trends, risks, and actionable insights for leadership. The analysis covers demographics, turnover, compensation & equity, diversity & inclusion, engagement, and HR’s internal role.  
 
 The final output is a **consulting-style HRIS Report** (PDF) that consolidates findings into KPIs, visual dashboards, and executive recommendations.  
 
@@ -34,11 +34,11 @@ TALENT-OPTIMIZATION-FOR-CORPORATION-HR-DATA-ANALYTICS
 │   └── info_completo.txt
 │
 ├── SQL
-│   ├── abc_corporation_SQL.ipynb
-│   ├── ABC_EER_DIAGRAM.mwb
-│   └── Forward_engineer.sql
+│   ├── EER_DIAGRAM.mwb
+│   ├── Forward_engineer.sql
+├    └── mysql.connector.ipynb
 │
-├── HRIS_Report_ABC_Corporation_Final.pdf
+├── HRIS_Report_demo.pdf
 ├── HRIS_Report_Preview.png
 └── README.md
 
@@ -207,7 +207,7 @@ GROUP BY p.job_level;
 Below is a preview of the **HRIS Report**, presented in a consulting format:  
 
 ![HRIS Report Preview](./HRIS_Report_Preview.png)  
-*Refer to **HRIS_Report_ABC_Corporation_Template.pdf** to access a sample consulting-style HRIS report, including KPIs, workforce demographics, turnover analysis, and actionable recommendations.*  
+*Refer to **HRIS_Report_demo.pdf** to access a sample consulting-style HRIS report, including KPIs, workforce demographics, turnover analysis, and actionable recommendations.*  
 
 ---
 
