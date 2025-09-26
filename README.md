@@ -1,9 +1,72 @@
 # Talent Optimization for Corporation – HR Data Analytics
 
 ## Project Overview
-This project applies **People Analytics** and **HRIS-style reporting** to a corporate HR dataset (BluePeak Technologies), with the goal of identifying workforce trends, risks, and actionable insights for leadership. The analysis covers demographics, turnover, compensation & equity, diversity & inclusion, engagement, and HR’s internal role.  
+This project applies **People Analytics** and **HRIS-style reporting** to a corporate HR dataset (BluePeak Technologies), with the goal of identifying workforce trends, risks, and actionable insights for leadership. The analysis covers demographics, turnover, compensation & equity, diversity & inclusion, engagement, and HR’s internal role. The final output is a **consulting-style HRIS Report** (PDF) that consolidates findings into KPIs, visual dashboards, and executive recommendations.  
 
-The final output is a **consulting-style HRIS Report** (PDF) that consolidates findings into KPIs, visual dashboards, and executive recommendations.  
+## Database Creation Methods
+This project demonstrates three different ways to create a MySQL database:
+
+### 1. **Using MySQL Connector (Python script)**  
+- The database schema and tables are created programmatically through Python, using the `mysql-connector-python` library.  
+- This approach is implemented in the `main.py` file inside the `src/` directory.
+
+```python
+cursor = cnx.cursor()
+cursor.execute("""
+CREATE TABLE IF NOT EXISTS employee (
+    employeenumber INT PRIMARY KEY,
+    attrition VARCHAR(10)
+);
+""")
+```
+
+---
+
+### 2. **Using SQL scripts with Python execution**  
+- Reusable SQL statements for schema and table creation are stored in dedicated files inside the `src/` directory (e.g., `queries.sql` or `queries.py` and `functions.py`).  
+- These scripts are executed programmatically by the `main.py` file, allowing you to create and configure the database automatically without manual intervention.
+
+```python
+import mysql.connector
+
+def create_schema_and_tables(query, password):
+    cnx = mysql.connector.connect(
+        user="root",
+        password=password,
+        host="127.0.0.1"
+    )
+    mycursor = cnx.cursor()
+
+    try:
+        for _ in mycursor.execute(query, multi=True):
+            pass
+        cnx.commit()
+        print("Schema and tables created successfully.")
+    except mysql.connector.Error as err:
+        if err.errno == 1045:  # wrong password
+            print("Access denied: check your password.")
+        else:
+            print(err)
+            print("Error Code:", err.errno)
+            print("SQLSTATE:", getattr(err, 'sqlstate', None))
+            print("Message:", err.msg)
+    finally:
+        cnx.close()
+```
+
+---
+
+### 3. **Using Forward Engineering in MySQL Workbench**  
+- The database structure is designed visually and then exported as SQL scripts through the Forward Engineering feature of MySQL Workbench.
+
+```sql
+-- -----------------------------------------------------
+-- Schema abc_corp
+-- -----------------------------------------------------
+CREATE SCHEMA IF NOT EXISTS `abc_corp` DEFAULT CHARACTER SET utf8 ;
+USE `abc_corp` ;
+```
+> **Note:** `abc_corp` was used here only as a demo schema name.
 
 ---
 
@@ -17,31 +80,34 @@ The final output is a **consulting-style HRIS Report** (PDF) that consolidates f
 ---
 
 ## Repository Structure
-```
-TALENT-OPTIMIZATION-FOR-CORPORATION-HR-DATA-ANALYTICS
-│
-├── Data-Analytics-and-Vizualization
-│   ├── context.ipynb
-│   ├── hr_data_cleaned.csv
-│   ├── start_stop_continued.ipynb
-│
-├── EDA
-│   ├── cleaning_and_export_CSV.ipynb
-│   ├── columnas_exploracion_visual.ipynb
-│   ├── exploracion_hr_cleaned.ipynb
-│   ├── exploration_hr_raw.ipynb
-│   ├── hr_raw_data.csv
-│   └── info_completo.txt
-│
-├── SQL
-│   ├── EER_DIAGRAM.mwb
-│   ├── Forward_engineer.sql
-├    └── mysql.connector.ipynb
-│
-├── HRIS_Report_demo.pdf
-├── HRIS_Report_Preview.png
-└── README.md
 
+```
+TALENT-OPTIMIZATION-FOR-CORPORATION-HR/
+├── Data-Analytics-and-Vizualization/      # Data cleaning and visualization notebooks
+│   ├── context.ipynb                      # Context and initial notes
+│   ├── hr_data_cleaned.csv                # Cleaned HR dataset
+│   └── start_stop_continued.ipynb         # Start-Stop-Continue analysis
+│
+├── EDA/                                   # Exploratory Data Analysis notebooks
+│   ├── cleaning_and_export_CSV.ipynb      # Data cleaning and CSV export
+│   ├── columnas_exploracion_visual.ipynb  # Visual exploration of columns
+│   ├── exploracion_hr_cleaned.ipynb       # EDA on cleaned HR dataset
+│   └── exploration_hr_raw.ipynb           # EDA on raw HR dataset
+│
+├── SQL/                                   # SQL design and creation resources
+│   ├── EER_DIAGRAM.mwb                    # MySQL Workbench EER diagram
+│   ├── forward_engineer.sql               # Forward-engineered SQL schema
+│   └── mysql.connector.ipynb              # Notebook for MySQL connector tests
+│
+├── src/                                   # Python scripts for automation
+│   ├── functions.py                       # Helper functions (SQL creation, inserts, etc.)
+│   └── queries.py                         # SQL queries stored as Python variables
+│
+├── .gitignore                             # Git ignore rules
+├── HRIS_Report_demo.pdf                   # Demo report output
+├── HRIS_Report_Preview.png                # Preview image of the HRIS report
+├── main.py                                # Main script to run automation (EDA & SQL)
+└── README.md                              # Project documentation
 ```
 
 ---
