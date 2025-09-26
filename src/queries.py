@@ -1,5 +1,5 @@
 #%%
-create_schema = "CREATE SCHEMA IF NOT EXISTS `bluepeak_technologies` DEFAULT CHARACTER SET utf8 ;"
+create_schema = "CREATE SCHEMA IF NOT EXISTS `bluepeak_tech` DEFAULT CHARACTER SET utf8 ;"
 
 use_schema = "USE `bluepeak_technologies`;"
 

@@ -38,35 +38,79 @@ def exploracion(df):
 
     return
 
+
 # SQL Schema Creation Automation Pipeline
 
 import mysql.connector
 
-def create_schema_and_tables(query, password):
+def create_tables_schema(query, password, db_name=None):
     """
-    Connects to MySQL without selecting a database,
-    executes the provided SQL script to create the schema and its tables.
+    If db_name is None -> connect without selecting a database and run the script
+    If db_name is provided -> connect to that database and run the script (if db_name is not None)
     """
+    if db_name is None:
+        cnx = mysql.connector.connect(
+            user="root",
+            password=password,
+            host="127.0.0.1")
+        cur = cnx.cursor()
+        try:
+            for _ in cur.execute(query, multi=True):
+                pass
+            cnx.commit()
+            print("Query executed successfully.")
+        except mysql.connector.Error as err:
+            print(err)
+            print("Error Code:", err.errno)
+            print("SQLSTATE", getattr(err, "sqlstate", None))
+            print("Message", err.msg)
+        finally:
+            cnx.close()
+    else:
+        # Use existing database to create tables
+        cnx = mysql.connector.connect(
+            user="root",
+            password=password,
+            host="127.0.0.1",
+            database=db_name
+        )
+        cur = cnx.cursor()
+        try:
+            for _ in cur.execute(query, multi=True):
+                pass
+            cnx.commit()
+            print("Query executed successfully.")
+        except mysql.connector.Error as err:
+            print(err)
+            print("Error Code:", err.errno)
+            print("SQLSTATE", getattr(err, "sqlstate", None))
+            print("Message", err.msg)
+        finally:
+            cnx.close()
+
+
+# SQL Schema and Data Insertion Automation Pipeline
+
+def insert_data(query, password, db_name, rows_list):
+    
     cnx = mysql.connector.connect(
         user="root",
         password=password,
-        host="127.0.0.1"
+        host="127.0.0.1",
+        database=db_name
     )
+    
     mycursor = cnx.cursor()
-
+    
     try:
-        # Allow execution of multiple SQL statements (CREATE SCHEMA + CREATE TABLES)
-        for _ in mycursor.execute(query, multi=True):
-            pass
+        mycursor.executemany(query, rows_list)
         cnx.commit()
-        print("Schema and tables created successfully.")
+        print(mycursor.rowcount, "record(s) inserted.")
+        cnx.close()
+        
     except mysql.connector.Error as err:
-        if err.errno == 1045:  # wrong password
-            print("Access denied: check your password.")
-        else:
-            print(err)
-            print("Error Code:", err.errno)
-            print("SQLSTATE:", getattr(err, 'sqlstate', None))
-            print("Message:", err.msg)
-    finally:
+        print(err)
+        print("Error Code:", err.errno)
+        print("SQLSTATE", err.sqlstate)
+        print("Message", err.msg)
         cnx.close()

@@ -82,6 +82,7 @@ USE `abc_corp` ;
 ## Repository Structure
 
 ```
+
 TALENT-OPTIMIZATION-FOR-CORPORATION-HR/
 ├── Data-Analytics-and-Vizualization/      # Data cleaning and visualization notebooks
 │   ├── context.ipynb                      # Context and initial notes
@@ -108,6 +109,7 @@ TALENT-OPTIMIZATION-FOR-CORPORATION-HR/
 ├── HRIS_Report_Preview.png                # Preview image of the HRIS report
 ├── main.py                                # Main script to run automation (EDA & SQL)
 └── README.md                              # Project documentation
+
 ```
 
 ---
@@ -125,8 +127,15 @@ TALENT-OPTIMIZATION-FOR-CORPORATION-HR/
    - Engagement & satisfaction: by department and role.  
 
 3. **SQL & Data Modeling**  
-   - Schema design with forward engineering.  
-   - SQL queries to replicate HRIS dashboards and KPIs.  
+   - **Schema design** using MySQL Workbench (Forward Engineering) and automated creation via Python (`mysql-connector-python`).
+   - **Three database creation paths** demonstrating practical SQL and data modeling skills:  
+  (1) Python script (`main.py` / `src/queries.py` + `src/functions.py`),  
+  (2) Forward Engineering export from MySQL Workbench,  
+  (3) SQL scripts executed programmatically.
+   - **Environment-driven config**: credentials loaded from `.env` via `python-dotenv` (no secrets in code).
+   - **Referential structure** split across `employee`, `employee_demographics`, `employee_professional`, `employee_financial`, and `employee_satisfaction`.
+   - **SQL queries** to replicate HRIS dashboards and KPIs (attrition, satisfaction indices, tenure, compensation metrics, cohort views).
+   - **Error handling** for common MySQL issues (e.g., access denied / wrong password, database not found).
 
 4. **Reporting & Recommendations**  
    - Start / Stop / Continue tracker (strategic actions).  
